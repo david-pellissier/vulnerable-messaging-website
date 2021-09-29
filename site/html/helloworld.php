@@ -1,10 +1,10 @@
+<!doctype html>
 <html>
  <head>
   <title>PHP Test</title>
  </head>
  <body>
- <?php echo '<p>Hello World</p>'; 
- $version = phpversion();
- print $version; ?>
+     hash: 
+ <?php print(password_hash("alice", PASSWORD_DEFAULT))?>
  </body>
 </html>
