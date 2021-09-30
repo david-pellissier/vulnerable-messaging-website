@@ -15,13 +15,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
-                            <h3 class="login-heading mb-4">Welcome back!</h3>
-
-                            <!-- Sign In Form -->
+                            <h3 class="login-heading mb-4">Welcome !</h3>
                             <form>
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                    <label for="floatingInput">Email address</label>
+                                    <input type="text" class="form-control" id="floatingUsername" placeholder="Username">
+                                    <label for="floatingUsername">Username</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
@@ -30,7 +28,6 @@
                                 <div class="d-grid">
                                     <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
                                 </div>
-
                             </form>
                         </div>
                     </div>
