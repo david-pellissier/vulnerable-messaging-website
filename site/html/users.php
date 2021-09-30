@@ -20,7 +20,7 @@
         <ul class="list-group">
             <li href="#" class="list-group-item text-left">
                 <label class="name">
-                    Juan guillermo cuadrado<br>
+                    Juan guillermo cuadrado
                 </label>
                 <label class="pull-right">
                     <a  class="btn btn-success btn-xs glyphicon glyphicon-ok" href="#" title="View">Edit</a>
