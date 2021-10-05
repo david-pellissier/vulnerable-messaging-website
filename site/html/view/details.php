@@ -4,7 +4,7 @@
     <title>Viewing message</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/message.css">
+    <link rel="stylesheet" href="../css/message.css">
 </head>
 <body>
 <div class="container px-5 my-5">
@@ -41,7 +41,6 @@
                             <button class="btn btn-primary btn-lg " id="replyButton" type="submit">Reply</button>
                         </div>
                         <br>
-
                         <div class="d-grid">
                             <button class="btn btn-primary btn-lg " id="eraseButton" type="submit">Erase</button>
                         </div>
