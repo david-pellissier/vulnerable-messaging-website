@@ -14,7 +14,11 @@
  }
 
  function delMail($no){
-
+     $db = connect();
+     $requete = "DELETE 
+                 FROM Message 
+                 WHERE no ='" . $no . "'";
+     return $db->query($requete);
  }
 
 

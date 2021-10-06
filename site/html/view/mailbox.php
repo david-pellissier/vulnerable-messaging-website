@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <h2 class="grid-title"><i class="fa fa-inbox"></i>Mailbox</h2>
-                            <a href="message.php" class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i>&nbsp;&nbsp;NEW MESSAGE</a>
+                            <a href="index.php?action=message" class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i>&nbsp;&nbsp;NEW MESSAGE</a>
                             <hr>
                             <a href="usermodify.php" class="btn btn-block btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Change password</a>
                             <hr>
@@ -31,8 +31,8 @@
                                             <td class="date"><?php echo $mail['date'] ?></td>
                                             <td class="sender"><?php echo $mail['sender'] ?></td>
                                             <td class="subject"><?php echo $mail['subject'] ?></td>
-                                            <td><button onclick="location.href = 'message.php'" type="button" class="btn btn-primary">Reply</button></td>
-                                            <td><button onclick="location.href = 'details.php'" type="button" class="btn btn-info">Open</button></td>
+                                            <td><button onclick="location.href = 'index.php?action=logout'" type="button" class="btn btn-primary">Reply</button></td>
+                                            <td><button onclick="location.href = 'index.php?action=details&no=<?php echo $mail['no']?>'" type="button" class="btn btn-info">Open</button></td>
                                             <td><button onclick="location.href = 'index.php?action=delete_mail&no=<?php echo $mail['no']?>'" type="button" class="btn btn-danger">Delete</button></td>
                                         </tr>
                                         <?php } ?>

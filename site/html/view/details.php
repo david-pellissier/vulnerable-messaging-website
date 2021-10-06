@@ -18,22 +18,22 @@
                     <form id="contactForm" data-sb-form-api-token="API_TOKEN">
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="date" type="text" placeholder="Reception date" disabled/>
+                            <input value="<?php echo $mail['date'] ?>" class="form-control" id="date" type="text" placeholder="Reception date" disabled/>
                             <label for="date">Reception date</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="recipient" type="text" placeholder="Sender" disabled/>
+                            <input value="<?php echo $mail['sender'] ?>" class="form-control" id="recipient" type="text" placeholder="Sender" disabled/>
                             <label for="recipient">Sender</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="subject" type="text" placeholder="Subject" disabled/>
+                            <input value="<?php echo $mail['subject'] ?>" class="form-control" id="subject" type="text" placeholder="Subject" disabled/>
                             <label for="subject">Subject</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" placeholder="Message" style="height: 10rem;" disabled></textarea>
+                            <textarea class="form-control" id="message" placeholder="Message" style="height: 10rem;" disabled><?php echo $mail['body'] ?></textarea>
                             <label for="message">Message</label>
                         </div>
 
@@ -42,7 +42,7 @@
                         </div>
                         <br>
                         <div class="d-grid">
-                            <button class="btn btn-primary btn-lg " id="eraseButton" type="submit">Erase</button>
+                            <button onclick="location.href = 'index.php?action=delete_mail&no=<?php echo $mail['no']?>'" class="btn btn-primary btn-lg " id="eraseButton" type="submit">Erase</button>
                         </div>
                     </form>
                 </div>
