@@ -23,9 +23,15 @@ try
 		case 'logout':
 			logout();
 			break;
+        case 'login' :
+            login();
+            break;
 		case 'admin':
             administration();
 			break;
+        case 'delete_mail':
+            deleteMail();
+            break;
      default :
         throw new Exception("L'action demandée est inconnue !");
     }   
@@ -35,5 +41,5 @@ try
 }
 catch (Exception $e)
 {
-  erreur($e->getMessage());
+  echo $e->getMessage();
 }

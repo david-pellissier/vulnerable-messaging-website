@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 
 function login(){
     // Récupération des variables POST
@@ -18,20 +17,19 @@ function login(){
                 exit();
             }
         } catch (Exception $e) {
-            $_SESSION['erreur'] = $e->getMessage();
-            @header("location: index.php?action=vue_login");
+            $_SESSION['error'] = $e->getMessage();
+            @header("location: index.php?action=home");
             exit();
         }
     } else {
-        if (isset($_SESSION['login'])) {
-            require "vue/vue_accueil.php"; //affiche la vue accueil si l'utilisateur est connecté
-        } else //Si l'utilisateur n'est pas connecté
-        {
-            require ROOT_PROFIL . "vue_login.php";
+        if (isset($_SESSION['username'])) {
+            // mailbox(); //affiche la vue accueil si l'utilisateur est connecté
+            @header("location: index.php?action=home");
+        }
+        else { //Si l'utilisateur n'est pas connecté
+            require "view/login.php";
         }
     }
-
-    require 'view/login.php';
 }
 
 ?>

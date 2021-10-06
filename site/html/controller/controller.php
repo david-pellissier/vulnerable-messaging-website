@@ -13,11 +13,12 @@
     require 'model/db.php';
 
     function home() {
+
         if(checkConnected()) {
-            require 'view/mailbox.php';
+            mailbox();
         }
         else {
-            require 'view/login.php';
+            login();
         }        
     }
 ?>

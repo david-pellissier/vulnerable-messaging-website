@@ -6,7 +6,7 @@
  */
 function checkLogin($postArray)
 {
-    $username = $postArray ["fLogin"];
+    $username = $postArray["fLogin"];
     $passwdPost = $postArray["fPasswd"];
     $resultats = getUserByLogin($username);
     $resultats = $resultats->fetch();

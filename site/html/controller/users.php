@@ -2,11 +2,12 @@
 
 function checkConnected()
 {
-    return true;
+    return $_SESSION["isConnected"];
 }
 
 function logout()
 {
+    session_destroy();
     require 'view/login.php';
 }
 

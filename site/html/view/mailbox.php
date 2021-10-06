@@ -25,14 +25,17 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <tbody>
+                                        <?php
+                                            foreach ($mails as $mail){ ?>
                                         <tr>
-                                            <td class="date">10.10.21</td>
-                                            <td class="sender">Larry Gardner</td>
-                                            <td class="subject">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed</td>
+                                            <td class="date"><?php echo $mail['date'] ?></td>
+                                            <td class="sender"><?php echo $mail['sender'] ?></td>
+                                            <td class="subject"><?php echo $mail['subject'] ?></td>
                                             <td><button onclick="location.href = 'message.php'" type="button" class="btn btn-primary">Reply</button></td>
                                             <td><button onclick="location.href = 'details.php'" type="button" class="btn btn-info">Open</button></td>
-                                            <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                            <td><button onclick="location.href = 'index.php?action=delete_mail&no=<?php echo $mail['no']?>'" type="button" class="btn btn-danger">Delete</button></td>
                                         </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
