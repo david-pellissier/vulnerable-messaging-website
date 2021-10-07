@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
+<?php require 'view/components/info_to_user.php'?>
 <div class="container-fluid ps-md-0">
     <div class="row g-0">
         <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>

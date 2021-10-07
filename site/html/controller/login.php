@@ -22,7 +22,7 @@ function login(){
             exit();
         }
     } else {
-        if (isset($_SESSION['username'])) {
+        if (isset($_SESSION['username']) && $_SESSION['valid'] == 1) {
             // mailbox(); //affiche la vue accueil si l'utilisateur est connecté
             @header("location: index.php?action=home");
         }

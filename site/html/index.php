@@ -32,6 +32,10 @@ try
         case 'delete_mail':
             deleteMail();
             break;
+        case 'change_password':
+        case 'update_user':
+            changeUserDetails();
+            break;
      default :
         throw new Exception("L'action demandée est inconnue !");
     }   

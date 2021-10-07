@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/mailbox.css" type="text/css">
 </head>
 <body>
+<?php require 'view/components/info_to_user.php'?>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -17,7 +18,7 @@
                             <h2 class="grid-title"><i class="fa fa-inbox"></i>Mailbox</h2>
                             <a href="index.php?action=message" class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i>&nbsp;&nbsp;NEW MESSAGE</a>
                             <hr>
-                            <a href="usermodify.php" class="btn btn-block btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Change password</a>
+                            <a href="index.php?action=change_password&no=<?php echo $_SESSION['no'] ?>" class="btn btn-block btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Change password</a>
                             <hr>
                             <a href="users.php" class="btn btn-block btn-warning" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;Users list</a>
                         </div>
