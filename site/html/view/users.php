@@ -6,8 +6,8 @@
     <title>Users</title>
 </head>
 <body>
+<?php require 'view/components/info_to_user.php'?>
 <div class="container bootstrap snippets bootdey">
-
     <div class="header">
         <h3 class="text-muted prj-name">
             <span class="fa fa-users fa-2x principal-title"></span>

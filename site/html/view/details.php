@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/message.css">
 </head>
 <body>
+<?php require 'view/components/info_to_user.php'?>
 <div class="container px-5 my-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">

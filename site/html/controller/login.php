@@ -13,17 +13,23 @@ function login(){
                 $_SESSION['valid'] = $infoUser['valid'];
                 $_SESSION['role'] = $infoUser['role'];
                 $_SESSION['error'] = "";
-                @header("location: index.php?action=home");
-                exit();
+
+                if($_SESSION['valid'] == 1){
+                    @header("location: index.php?action=home");
+                }
+                else{
+                    $message = "This user is disabled";
+                    require "view/login.php";
+                }
+
             }
         } catch (Exception $e) {
             $_SESSION['error'] = $e->getMessage();
             @header("location: index.php?action=home");
-            exit();
         }
     } else {
-        if (isset($_SESSION['username'])) {
-            // mailbox(); //affiche la vue accueil si l'utilisateur est connecté
+        if (isset($_SESSION['username']) && $_SESSION['valid'] == 1) {
+            //affiche la vue accueil si l'utilisateur est connecté
             @header("location: index.php?action=home");
         }
         else { //Si l'utilisateur n'est pas connecté
