@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="d-grid">
-                            <button class="btn btn-primary btn-lg " id="replyButton" type="submit">Reply</button>
+                            <button onclick="location.href = 'index.php?action=message&reply=<?php echo $mail['no']?> class="btn btn-primary btn-lg " id="replyButton" type="submit">Reply</button>
                         </div>
                         <br>
                         <div class="d-grid">

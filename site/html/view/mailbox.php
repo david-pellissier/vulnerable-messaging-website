@@ -34,7 +34,7 @@
                                             <td class="date"><?php echo $mail['date'] ?></td>
                                             <td class="sender"><?php echo $mail['sender'] ?></td>
                                             <td class="subject"><?php echo $mail['subject'] ?></td>
-                                            <td><button onclick="location.href = 'index.php?action=logout'" type="button" class="btn btn-primary">Reply</button></td>
+                                            <td><button onclick="location.href = 'index.php?action=message&reply=<?php echo $mail['no']?>'" type="button" class="btn btn-primary">Reply</button></td>
                                             <td><button onclick="location.href = 'index.php?action=details&no=<?php echo $mail['no']?>'" type="button" class="btn btn-info">Open</button></td>
                                             <td><button onclick="location.href = 'index.php?action=delete_mail&no=<?php echo $mail['no']?>'" type="button" class="btn btn-danger">Delete</button></td>
                                         </tr>

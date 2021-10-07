@@ -8,7 +8,7 @@
                 INNER JOIN User
                 ON Message.noSender = User.no
                 WHERE noRecipient ='" . $user . "'
-                ORDER BY date desc";
+                ORDER BY date DESC";
      // Exécution de la requete
      return $db->query($requete);
  }
