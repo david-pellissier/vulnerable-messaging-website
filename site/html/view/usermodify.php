@@ -16,32 +16,39 @@
                     <div class="text-center">
                         <div class="h1 fw-light">User details</div>
                     </div>
-                    <form id="contactForm"  action="index.php?action=update_user&no=<?php echo $_SESSION['no'] ?>" method="POST"/data-sb-form-api-token="API_TOKEN">
+                    <form id="contactForm"
+                          action="index.php?action=update_user&no=<?php echo $_GET['no'] ?>"method="POST">
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="username" type="text" placeholder="Username" data-sb-validations="required" disabled/>
+                            <input class="form-control" id="username" type="text" placeholder="Username" name="username" value="<?php echo $user['username']?>"
+                                <?php if($_SESSION['role']==0) { echo "disabled"; } ?> required/>
                             <label for="username">Username</label>
                         </div>
 
-                        <select class="form-select" aria-label="Roles">
-                            <option value="1">Collaborator</option>
-                            <option value="2">Administrator</option>
+                        <select class="form-select" aria-label="Roles" name="role" <?php if($_SESSION['role']==0) { echo "disabled"; } ?>>
+                            <option value="0" <?php if($user['role']==0) { echo "selected"; } ?>>Collaborator</option>
+                            <option value="1" <?php if($user['role']==1) { echo "selected"; } ?>>Administrator</option>
                         </select>
                         <br>
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="password" type="text" placeholder="Password" data-sb-validations="required" />
+                            <input class="form-control" id="password" type="password" placeholder="Password" name="password"
+                                <?php if($_SESSION['role']==0) { echo "required"; } ?>/>
                             <label for="password">Enter new password</label>
-                            <div class="invalid-feedback" data-sb-feedback="password:required">New password is required.</div>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="confpassword" type="text" placeholder="Confirm password" data-sb-validations="required" name="password"/>
+                            <input class="form-control" id="confpassword" type="password" placeholder="Confirm password" name="confpassword"
+                            <?php if($_SESSION['role']==0) { echo "required"; } ?>/>
                             <label for="confpassword">Confirm new password</label>
-                            <div class="invalid-feedback" data-sb-feedback="confpassword:required">Confirm new password.</div>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <input class="form-check-input" type="checkbox" id="defaultCheck1" name="valid"
+                                <?php
+                                if($_SESSION['role']==0) { echo "disabled "; }
+                                if ($user['valid'] == 1) { echo "checked"; }
+                                ?>
+                            />
                             <label class="form-check-label" for="defaultCheck1">Account validity</label>
                         </div>
 
@@ -56,6 +63,8 @@
 </div>
 
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<?php require "view/components/password_repeat_check.html" ?>
+
 </body>
 </html>
 

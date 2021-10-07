@@ -29,13 +29,13 @@
                         </select>
                         <br>
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="password" type="text" placeholder="Password" data-sb-validations="required" />
+                            <input class="form-control" id="password" type="password" placeholder="Password" data-sb-validations="required" />
                             <label for="password">Enter new password</label>
                             <div class="invalid-feedback" data-sb-feedback="password:required">New password is required.</div>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="confpassword" type="text" placeholder="Confirm password" data-sb-validations="required" />
+                            <input class="form-control" id="confpassword" type="password" placeholder="Confirm password" data-sb-validations="required" />
                             <label for="confpassword">Confirm new password</label>
                             <div class="invalid-feedback" data-sb-feedback="confpassword:required">Confirm new password.</div>
                         </div>

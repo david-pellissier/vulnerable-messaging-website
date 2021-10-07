@@ -21,6 +21,8 @@
                             <a href="index.php?action=change_password&no=<?php echo $_SESSION['no'] ?>" class="btn btn-block btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Change password</a>
                             <hr>
                             <a href="users.php" class="btn btn-block btn-warning" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;Users list</a>
+                            <hr>
+                            <a href="index.php?action=logout" class="btn btn-block btn-warning" data-toggle="modal" data-target="#compose-modal">Disconnect</a>
                         </div>
                         <div class="col-md-9">
                             <div class="table-responsive">
