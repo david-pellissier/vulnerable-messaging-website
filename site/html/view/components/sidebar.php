@@ -27,7 +27,7 @@
         <br>
         <a href="index.php?action=change_password&no=<?php echo $_SESSION['no'] ?>" class="btn btn-success" data-toggle="modal" data-target="#compose-modal">Change password</a>
         <br>
-        <?php if($_SESSION['role'] == 1) { ?>
+        <?php if($_SESSION['role'] == ROLE_ADMIN) { ?>
             <a href="index.php?action=admin" class="btn btn-warning" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-list" aria-hidden="true"></i> Users list</a>
             <br/>
         <?php } ?>

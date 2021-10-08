@@ -26,21 +26,21 @@
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="username" type="text" placeholder="Username"
                                        name="username" value="<?php echo $user['username'] ?>"
-                                    <?php if ($_SESSION['role'] == 0) {
+                                    <?php if ($_SESSION['role'] == ROLE_USER) {
                                         echo "disabled";
                                     } ?> required/>
                                 <label for="username">Username</label>
                             </div>
 
                             <select class="form-select" aria-label="Roles"
-                                    name="role" <?php if ($_SESSION['role'] == 0) {
+                                    name="role" <?php if ($_SESSION['role'] == ROLE_USER) {
                                 echo "disabled";
-                            } ?>>
-                                <option value="0" <?php if ($user['role'] == 0) {
+                            } ?> >
+                                <option value="0" <?php if ($user['role'] == ROLE_USER) {
                                     echo "selected";
                                 } ?>>Collaborator
                                 </option>
-                                <option value="1" <?php if ($user['role'] == 1) {
+                                <option value="1" <?php if ($user['role'] == ROLE_ADMIN) {
                                     echo "selected";
                                 } ?>>Administrator
                                 </option>
@@ -49,7 +49,7 @@
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="password" type="password" placeholder="Password"
                                        name="password"
-                                    <?php if ($_SESSION['role'] == 0) {
+                                    <?php if ($_SESSION['role'] == ROLE_USER) {
                                         echo "required";
                                     } ?>/>
                                 <label for="password">Enter new password</label>
@@ -58,7 +58,7 @@
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="confpassword" type="password"
                                        placeholder="Confirm password" name="confpassword"
-                                    <?php if ($_SESSION['role'] == 0) {
+                                    <?php if ($_SESSION['role'] == ROLE_USER) {
                                         echo "required";
                                     } ?>/>
                                 <label for="confpassword">Confirm new password</label>
@@ -67,7 +67,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="defaultCheck1" name="valid"
                                     <?php
-                                    if ($_SESSION['role'] == 0) {
+                                    if ($_SESSION['role'] == ROLE_USER) {
                                         echo "disabled ";
                                     }
                                     if ($user['valid'] == 1) {

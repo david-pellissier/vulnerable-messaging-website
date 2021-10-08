@@ -79,7 +79,6 @@ function insertUser($username, $password, $valid, $role)
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     $request = "INSERT INTO User (username, password, valid, role) VALUES ('$username', '$password', $valid, $role)";
-    echo $request;
     return $db->query($request);
 
 }

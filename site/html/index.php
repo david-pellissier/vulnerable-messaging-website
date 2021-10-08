@@ -5,7 +5,6 @@ session_start();
 require 'controller/controller.php';
 
 try {
-    $message = "";
     if (isset($_GET['action'])) {
         $action = $_GET['action'];
         switch ($action) {
