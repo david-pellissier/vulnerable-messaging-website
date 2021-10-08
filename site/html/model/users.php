@@ -43,10 +43,43 @@ function updateUserNonEmptyFields($id){
 function getUserByID($no)
 {
     $db = connect();
-    // Création de la string pour la requête
-    $requete = "SELECT no, username, valid, role 
+
+    $request = "SELECT no, username, valid, role 
                 FROM User 
                 WHERE no ='" . $no . "'";
-    // Exécution de la requete
-    return $db->query($requete);
+
+    return $db->query($request);
+}
+
+function getAllUsers()
+{
+
+    $db = connect();
+
+    $request = "SELECT no, username, valid, role FROM User";
+
+    return $db->query($request);
+
+}
+
+function dropUser($id)
+{
+    $db = connect();
+
+    $request = "DELETE FROM User WHERE no = " . $id;
+
+    return $db->query($request);
+}
+
+
+function insertUser($username, $password, $valid, $role)
+{
+    $db = connect();
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    $request = "INSERT INTO User (username, password, valid, role) VALUES ('$username', '$password', $valid, $role)";
+    echo $request;
+    return $db->query($request);
+
 }

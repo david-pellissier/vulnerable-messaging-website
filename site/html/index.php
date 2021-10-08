@@ -34,6 +34,12 @@ try {
             case 'update_user':
                 changeUserDetails();
                 break;
+            case 'delete_user':
+                deleteUser();
+                break;
+            case 'add_user':
+                addUser();
+                break;
             default :
                 throw new Exception("L'action demandée est inconnue !");
         }

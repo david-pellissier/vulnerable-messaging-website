@@ -14,8 +14,10 @@ function logout()
 
 function administration()
 {
+    $users = getAllUsers()->fetchAll();
     require 'view/users.php';
 }
+
 /* MEMO "admin" = $2y$10$WYDCmKw0I4v727i9VhQbZODJE791WA8lZfcgty5VfqKqnBzTJRBmO */
 function changeUserDetails()
 {
@@ -54,4 +56,33 @@ function changeUserDetails()
     }
 }
 
+function addUser(){
+
+    $username = "User " . rand(10000, 100000);
+    insertUser($username, "default", "0", "0");
+    $user = getUserByLogin($username);
+    @header("location: index.php?action=update_user&no=" . $user['no']);
+    exit();
+}
+
+function deleteUser(){
+    $userNo = $_GET['no'];
+
+    // Vérifie si l'utilisateur existe
+    $user = getUserByID($userNo)->fetch();
+    if($user != null ) {
+
+        if($userNo != $_SESSION['no']){
+            dropUser($userNo);
+            administration();
+        }
+        else{
+            throw new Exception("You cannot delete yourself è-é");
+        }
+    }
+    else {
+        throw new Exception("This user does not exist");
+    }
+
+}
 
