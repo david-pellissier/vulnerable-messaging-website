@@ -1,0 +1,10 @@
+html, body {
+    font-family: sans-serif;
+}
+
+.root {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    margin-top : 8px;
+}

@@ -41,6 +41,7 @@ function changeUserDetails()
     if($_SESSION['role'] == 1 && isset($_POST['username'])){
         updateUserNonEmptyFields($userNo);
         $message = "The account has been modified";
+        administration();
     }
 
     // si nouveau mot de passe
