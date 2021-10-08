@@ -1,4 +1,7 @@
 <?php 
+    define('ROLE_USER', '0');
+    define('ROLE_ADMIN', '1');
+    
     require 'controller/details.php';
     require 'controller/mailbox.php';
     require 'controller/message.php';

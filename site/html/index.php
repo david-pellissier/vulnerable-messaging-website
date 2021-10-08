@@ -5,7 +5,6 @@ session_start();
 require 'controller/controller.php';
 
 try {
-    $message = "";
     if (isset($_GET['action'])) {
         $action = $_GET['action'];
         switch ($action) {
@@ -33,6 +32,12 @@ try {
             case 'change_password':
             case 'update_user':
                 changeUserDetails();
+                break;
+            case 'delete_user':
+                deleteUser();
+                break;
+            case 'add_user':
+                addUser();
                 break;
             default :
                 throw new Exception("L'action demandée est inconnue !");

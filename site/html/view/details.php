@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/message.css">
 </head>
 <body>
-
 <?php require 'view/components/info_to_user.php'?>
 <div class="root">
     <?php require 'view/components/sidebar.php' ?>
