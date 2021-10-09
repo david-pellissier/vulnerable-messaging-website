@@ -21,19 +21,19 @@
                         <form method="post" action="index.php?action=message" id="contactForm" data-sb-form-api-token="API_TOKEN">
 
                             <div class="form-floating mb-3">
-                                <input value="<?php echo $mail['sender'] ?>" name="recipient" class="form-control" id="recipient" type="text" placeholder="Recipient" data-sb-validations="required" />
+                                <input value="<?php if (isset($_GET['reply'])) echo $mail['sender'] ?>" name="recipient" class="form-control" id="recipient" type="text" placeholder="Recipient" data-sb-validations="required" />
                                 <label for="recipient">Recipient</label>
                                 <div class="invalid-feedback" data-sb-feedback="recipient:required">Recipient is required.</div>
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input value="RE: <?php echo $mail['subject'] ?>" name="subject" class="form-control" id="subject" type="text" placeholder="Subject" data-sb-validations="required" />
+                                <input value="<?php if (isset($_GET['reply'])) echo "RE:" . $mail['subject'] ?>" name="subject" class="form-control" id="subject" type="text" placeholder="Subject" data-sb-validations="required" />
                                 <label for="subject">Subject</label>
                                 <div class="invalid-feedback" data-sb-feedback="subject:required">Subject is required.</div>
                             </div>
 
                             <div class="form-floating mb-3">
-                                <textarea name="body" class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"><?php echo "\n\n-------------------------------------\n" . $mail['body'] ?></textarea>
+                                <textarea name="body" class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"><?php if (isset($_GET['reply'])) echo "\n\n-------------------------------------\n" . $mail['body'] ?></textarea>
                                 <label for="message">Message</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">Message is required.</div>
                             </div>

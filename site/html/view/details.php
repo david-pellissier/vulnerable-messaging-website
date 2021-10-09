@@ -41,11 +41,11 @@
                             </div>
 
                             <div class="d-grid">
-                                <button onclick="location.href = 'index.php?action=message&reply=<?php echo $mail['no']?>" class="btn btn-primary btn-lg id="replyButton" type="submit">Reply</button>
+                                <button onclick="location.href = 'index.php?action=message&reply=<?php echo $mail['no']?>'" type="button" class="btn btn-primary">Reply</button>
                             </div>
                             <br>
                             <div class="d-grid">
-                                <button onclick="location.href = 'index.php?action=delete_mail&no=<?php echo $mail['no']?>'" class="btn btn-danger btn-lg " id="eraseButton" type="submit">Erase</button>
+                                <button onclick="location.href = 'index.php?action=delete_mail&no=<?php echo $mail['no']?>'" type="button" class="btn btn-danger">Delete</button>
                             </div>
                         </form>
                     </div>
