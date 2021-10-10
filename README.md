@@ -203,7 +203,7 @@ Comme dans la boîte mail, il est aussi possible de répondre au message et de l
 - [ ] (Si l'on quitte la page de création d'utilisateur sans valider sa création, l'utilisateur est créé quand même)
 - [x] Afficher rôle, validité en plus dans la liste des utilisateurs
 - [x] Modifier le nom du bouton pour créer/modifier un utilisateur -> "submit"
-- [x] Régler problème lors de réponse de mail `SQLSTATE[HY000]: General error: 1 near "ai": syntax error` à cause d'un apostrophe qui est interprété dans la requête
+- [ ] Régler problème lors de réponse de mail `SQLSTATE[HY000]: General error: 1 near "ai": syntax error` à cause d'un apostrophe qui est interprété dans la requête
 - [x] Seule la page de login doit être accessible sans être authentifié (sidebar est accessible, à corriger ?)
 - [x] Le destinataire doit être unique
 - [ ] Problème d'affichage lors du changement de mot de passe
