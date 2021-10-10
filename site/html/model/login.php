@@ -11,7 +11,9 @@ function checkLogin($postArray)
     $resultats = getUserByLogin($username);
     $resultats = $resultats->fetch();
     if (empty($resultats['username'])) {
-        throw new Exception("Les données d'authentification sont incorrectes");
+        $message = "The user does not exist or the password is incorrect";
+        require 'view/login.php';
+        //throw new Exception("Les données d'authentification sont incorrectes");
     }
     $hash = $resultats['password'];
     if (password_verify($passwdPost, $hash)) {
@@ -23,7 +25,8 @@ function checkLogin($postArray)
             'role' => $resultats['role'],
         );
     } else {
-        throw new Exception("Les données d'authentification sont incorrectes");
+        $message = "The user does not exist or the password is incorrect";
+        require 'view/login.php';
     }
     return @$infoUser;//renvoie certaines infos de l'utilisateur
 }

@@ -79,7 +79,7 @@
                             </div>
 
                             <div class="d-grid">
-                                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Modify</button>
+                                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>

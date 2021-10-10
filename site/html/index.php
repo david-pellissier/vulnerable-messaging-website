@@ -5,7 +5,7 @@ session_start();
 require 'controller/controller.php';
 
 try {
-    if (isset($_GET['action'])) {
+    if (isset($_GET['action']) && $_SESSION['isConnected']) {
         $action = $_GET['action'];
         switch ($action) {
             case 'home' :
@@ -40,7 +40,7 @@ try {
                 addUser();
                 break;
             default :
-                throw new Exception("L'action demandée est inconnue !");
+                throw new Exception("Requested action unknown");
         }
     } else
         home();

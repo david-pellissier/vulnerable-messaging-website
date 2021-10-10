@@ -17,24 +17,31 @@
                 Users
             </h3>
         </div>
-        <?php foreach($users as $user) { ?>
-            <div class="jumbotron list-content">
-            <ul class="list-group">
-                <li class="list-group-item text-left">
-                    <label class="name">
-                        <?php echo $user['username']; ?>
-                    </label>
-                    <label class="pull-right">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Account validity</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach ($users as $user){ ?>
+                <tr>
+                    <td><?php echo $user['username']; ?></td>
+                    <td><?php if ($user['valid']) { echo "enabled";} else { echo "disabled";}  ?></td>
+                    <td><?php if ($user['role']) { echo "Administrator";} else { echo "Collaborator";} ?></td>
+                    <td>
                         <a class="btn btn-success btn-xs glyphicon glyphicon-ok" href="index.php?action=update_user&no=<?php echo $user['no'] ?>"
                            title="View">Edit</a>
                         <a class="btn btn-danger  btn-xs glyphicon glyphicon-trash" href="index.php?action=delete_user&no=<?php echo $user['no'] ?>" title="Delete">Delete</a>
-                    </label>
-                    <div class="break"></div>
-                </li>
-            </ul>
-            <br>
-        </div>
-        <?php } ?>
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
         <a class="btn btn-success btn-xs glyphicon glyphicon-ok" href="index.php?action=add_user" title="View">Add user</a>
     </div>
 </div>

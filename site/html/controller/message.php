@@ -7,10 +7,12 @@
             $resultats = getUserByLogin($_POST['recipient']);
             $resultats = $resultats->fetch();
             if (empty($resultats['username'])) {
-                throw new Exception("Les données d'authentification sont incorrectes");
+                $message = "The user does not exist";
+                require 'view/message.php';
+                //throw new Exception("Les données d'authentification sont incorrectes");
             }
             else {
-                $date = date("Y-m-d");
+                $date = date("Y-m-d H:i:s");
                 sendMail($_SESSION['no'], $resultats['no'], $_POST['subject'], $_POST['body'], $date);
                 mailbox();
             }

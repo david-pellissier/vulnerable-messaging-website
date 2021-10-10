@@ -21,7 +21,7 @@
                         <form id="contactForm" data-sb-form-api-token="API_TOKEN">
 
                             <div class="form-floating mb-3">
-                                <input value="<?php echo $mail['date'] ?>" class="form-control" id="date" type="text" placeholder="Reception date" disabled/>
+                                <input value="<?php echo substr($mail['date'], 0, 10) ?>" class="form-control" id="date" type="text" placeholder="Reception date" disabled/>
                                 <label for="date">Reception date</label>
                             </div>
 

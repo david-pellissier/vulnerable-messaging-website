@@ -25,7 +25,7 @@
                 <?php
                 foreach ($mails as $mail){ ?>
                 <tr>
-                    <td class="date"><?php echo $mail['date'] ?></td>
+                    <td class="date"><?php echo substr($mail['date'], 0, 10) ?></td>
                     <td class="sender"><?php echo $mail['sender'] ?></td>
                     <td class="subject"><?php echo $mail['subject'] ?></td>
                     <td><button onclick="location.href = 'index.php?action=message&reply=<?php echo $mail['no']?>'" type="button" class="btn btn-primary">Reply</button>

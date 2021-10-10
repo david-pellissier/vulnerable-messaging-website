@@ -21,12 +21,8 @@ function updateUserNonEmptyFields($id){
     $db = connect();
     $request = "UPDATE User SET ";
 
-    if(isset($_POST['username'])){
-        $request .= "username='" . $_POST['username'] . "' ";
-    }
-
     if(isset($_POST['role'])){
-        $request .= ", role=" . $_POST['role']%2 . " "; // mod 1 car role = 0 ou 1
+        $request .= "role=" . $_POST['role']%2 . " "; // mod 1 car role = 0 ou 1
     }
 
     // valid n'est pas envoyé si la checkbox n'est pas cochée depuis la vue
