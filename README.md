@@ -1,11 +1,209 @@
-# STI-Projet-Ogi-Pellissier
+# STI : Projet 1 - Manuel utilisateur
 
-Choix de développement:
+Auteurs : Nicolas Ogi, David Pellissier
 
-- NGINX, PHP et SQLite (ou MySQL)
-- Code en anglais, Commentaires en français
-
+Date : 10.10.21
 
 
-Commande sur Windows :`docker run -ti -v ${PWD}/site:/usr/share/nginx/ -d -p 8080:80 --name sti_project --hostname sti arubinst/sti:project2018`
+
+## Installation
+
+1. Commencez par cloner ce repository GitHub à l'endroit de votre choix avec la commande :
+
+   `git clone git@github.com:david-pellissier/STI-Projet-Ogi-Pellissier.git`
+
+   Vous devriez obtenir l'arborescence suivante :
+   
+   ```
+   │   README.md
+   |
+   └───site
+       ├───databases
+       │       database.sqlite
+       │
+       └───html
+           │   index.php
+           │   phpliteadmin.php
+           │
+           ├───controller
+           │       controller.php
+           │       details.php
+           │       login.php
+           │       mailbox.php
+           │       message.php
+           │       users.php
+           │
+           ├───css
+           │       global.css
+           │       login.css
+           │       mailbox.css
+           │       message.css
+           │       users.css
+           │
+           ├───model
+           │       db.php
+           │       details.php
+           │       login.php
+           │       mailbox.php
+           │       message.php
+           │       users.php
+           │
+           └───view
+               │   details.php
+               │   login.php
+               │   mailbox.php
+               │   message.php
+               │   usermodify.php
+               │   users.php
+               │
+               └───components
+                       info_to_user.php
+                       password_repeat_check.html
+                       sidebar.php
+   ```
+   
+   Comme ce projet a été construit avec un pattern MVC, vous retrouverez les contrôleurs dans le dossier *controller*, les modèles dans le dossier *model* et les vues dans le dossier *view*. La base de données est fournie avec le projet et est représentée par le fichier *database.sqlite* dans le dossier *databases*. Il est possible d'y accéder via le fichier *phpliteadmin.php* une fois le conteneur Docker et les services démarrés.
+
+
+
+## Lancement
+
+2. Pour créer le conteneur Docker, utiliser la commande :
+
+   - Windows : `docker run -ti -v ${PWD}/site:/usr/share/nginx/ -d -p 8080:80 --name sti_project --hostname sti arubinst/sti:project2018`
+   - Linux : **TODO**
+
+   Elle permet de télécharger l'image de base *arubinst/sti:project2018* contenant les services nginx et php, de mapper le dossier *site* en local sur le dossier */usr/share/nginx/* dans le conteneur, de mapper le port 8080 local sur le port 80 du conteneur, de nommer le conteneur *sti_project* ainsi que de nommer la machine *sti*.
+
+   Si le conteneur Docker existe déjà, vous n'avez qu'à le lancer avec la commande : `docker start sti_project`
+
+   
+
+3. Lancez les services depuis votre host :
+
+   - nginx : `docker exec -u root sti_project service nginx start`
+   - php : `docker exec -u root sti_project service php5-fpm start`
+
+   
+
+   **ATTENTION** : Avant de lancer les commandes Docker ci-dessus, assurez-vous d'avoir bien installé et lancé le Docker Engine sur votre machine.
+
+
+
+4. Accédez à la page de login en tapant `localhost:8080` dans votre navigateur.
+
+
+
+## Utilisation
+
+### Page de login
+
+![image-20211010174302294](figures/image-20211010174302294.png)
+
+Voici la page de login, vous demandant d'entrer un nom d'utilisateur et un mot de passe. Deux comptes sont déjà créés, un compte d'administrateur et un compte de collaborateur dont vous trouverez les informations de connexion ci-dessous :
+
+| Nom d'utilisateur | Mot de passe | Rôle           | Validité |
+| ----------------- | ------------ | -------------- | -------- |
+| admin             | admin        | Administrateur | actif    |
+| alice             | alice        | Collaborateur  | actif    |
+
+
+
+### Boîte mail
+
+Une fois connecté, vous arriverez sur cette page représentant une boîte mail :
+
+![image-20211010175349820](figures/image-20211010175349820.png)
+
+Le panneau de gauche possède différents boutons permettant d'écrire un nouveau message, de changer son mot de passe, d'accéder à la liste des utilisateurs (bouton affiché seulement pour les comptes ayant le rôle d'Administrateur) et de se déconnecter.
+
+Le panneau de droite affiche le nom de l'utilisateur actuellement connecté ainsi que les mails reçus. Il est possible d'y répondre directement, de l'ouvrir afin d'afficher le corps du message et de le supprimer.
+
+
+
+### Écrire un nouveau mail
+
+Après avoir appuyé sur le bouton *NEW MESSAGE*, la page ci-dessous s'affiche à l'écran : 
+
+![image-20211010180412875](figures/image-20211010180412875.png)
+
+Pour envoyer un nouveau mail, il suffit de renseigner un nom d'utilisateur existant dans la base de données, de renseigner un sujet ainsi qu'un corps.
+
+
+
+### Changer son mot de passe
+
+En cliquant sur le bouton *Change password*, il est possible d'accéder aux informations de compte de l'utilisateur connecté afin de modifier son mot de passe : 
+
+![image-20211010183852483](figures/image-20211010183852483.png)
+
+Un collaborateur ne pourra que modifier son mot de passe à l'aide de la page ci-dessus.
+
+
+
+### Liste des utilisateurs
+
+Un administrateur peut accéder à la liste des utilisateurs en cliquant sur le bouton *Users list* :
+
+![image-20211010181607086](figures/image-20211010181607086.png)
+
+Depuis là, il peut modifier, ajouter voire supprimer un utilisateur. Pour revenir dans la boîte mail, il suffit de cliquer sur *Mailbox* en haut à gauche. Un administrateur peut également passer par cette page pour accéder aux informations de son compte et de modifier son mot de passe par exemple.
+
+
+
+### Créer un nouvel utilisateur
+
+Lorsqu'un administrateur clique sur le bouton *Add user* en-dessous de la liste des utilisateurs existants, il arrive sur la page ci-dessous :
+
+**TODO**
+
+Elle lui permet de renseigner un nom d'utilisateur (ou utiliser celui généré par défaut), de paramétrer le rôle de celui-ci, de lui définir un mot de passe ainsi que d'activer ou non le compte avec la checkbox.
+
+
+
+### Modifier un utilisateur existant
+
+Lorsqu'un administrateur clique sur le bouton *Edit* à côté d'utilisateur dans liste des utilisateurs existants, il arrive sur la page ci-dessous :
+
+![image-20211010184238320](figures/image-20211010184238320.png)
+
+Elle lui permet de modifier le rôle de l'utilisateur,  son mot de passe ainsi que d'activer ou désactiver le compte.
+
+
+
+
+### Répondre à un mail
+
+En cliquant sur le bouton *Reply* présent à côté d'un mail reçu, il est possible d'y répondre directement et d'avoir une partie des champs pré-remplie :
+
+![image-20211010182809550](figures/image-20211010182809550.png)
+
+
+
+Ici, il suffit d'écrire sa réponse en-dessus de la ligne horizontale qui sépare le corps du mail reçu de la réponse.
+
+
+
+### Ouvrir un mail
+
+En cliquant sur le bouton *Open* situé à côté d'un mail reçu, il est possible de l'ouvrir afin d'en afficher les détails avec cette page :
+
+![image-20211010183221677](figures/image-20211010183221677.png)
+
+Comme dans la boîte mail, il est aussi possible de répondre au message et de le supprimer avec les deux boutons placés en-dessous du corps du message.
+
+
+
+**TODO** :
+
+- Afficher message d'erreur si login incorrect
+- Trier mail par date AVEC heure car mails du même jour pas dans le bon ordre et tronquer affichage dans mailbox
+- Lors de l'envoi d'un nouveau mail, si l'utilisateur n'existe pas afficher message d'erreur en haut à gauche
+- Rendre le nom d'utilisateur non-modifiable
+- Si l'on quitte la page de création d'utilisateur sans valider sa création, l'utilisateur est créé quand même
+- Afficher rôle, validité en plus dans la liste des utilisateurs
+- Modifier le nom du bouton pour créer/modifier un utilisateur -> "submit"
+
+- Régler problème lors de réponse de mail `SQLSTATE[HY000]: General error: 1 near "ai": syntax error` à cause d'un apostrophe qui est interprété
+- Ne pas être obligé de connaître le mdp de l'utilisateur pour désactiver le compte
 
