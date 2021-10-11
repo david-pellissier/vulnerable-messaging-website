@@ -2,6 +2,7 @@
 session_set_cookie_params(10000); // durée de vie de session si > destruction automatique
 session_start();
 
+
 require 'controller/controller.php';
 
 try {
@@ -45,5 +46,6 @@ try {
     } else
         home();
 } catch (Exception $e) {
+    http_response_code(500);
     echo $e->getMessage();
 }

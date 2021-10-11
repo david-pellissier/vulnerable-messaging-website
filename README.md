@@ -2,7 +2,7 @@
 
 Auteurs : Nicolas Ogi, David Pellissier
 
-Date : 10.10.21
+Date : 11.10.21
 
 
 
@@ -70,22 +70,13 @@ Date : 10.10.21
 
 2. Pour créer le conteneur Docker, utiliser la commande :
 
-- Windows :
-
-```powershell
-   docker run -ti -v ${PWD}/site:/usr/share/nginx/ -d -p 8080:80 --name sti_project --hostname sti arubinst/sti:project2018
-```
-   - Linux : 
-   
 ```bash
    docker run -ti -v ${PWD}/site:/usr/share/nginx/ -d -p 8080:80 --name sti_project --hostname sti arubinst/sti:project2018
 ```
-
-   Elle permet de télécharger l'image de base *arubinst/sti:project2018* contenant les services nginx et php, de mapper le dossier *site* en local sur le dossier */usr/share/nginx/* dans le conteneur, de mapper le port 8080 local sur le port 80 du conteneur, de nommer le conteneur *sti_project* ainsi que de nommer la machine *sti*.
+Elle permet de télécharger l'image de base *arubinst/sti:project2018* contenant les services nginx et php, de mapper le dossier *site* en local sur le dossier */usr/share/nginx/* dans le conteneur, de mapper le port 8080 local sur le port 80 du conteneur, de nommer le conteneur *sti_project* ainsi que de nommer la machine *sti*.
 
    Si le conteneur Docker existe déjà, vous n'avez qu'à le lancer avec la commande : `docker start sti_project`
 
-   
 
 3. Lancez les deux services depuis votre host :
 
@@ -93,7 +84,7 @@ Date : 10.10.21
 docker exec -u root sti_project service nginx start # NGINX
 docker exec -u root sti_project service php5-fpm start # pour PHP
 ```
- 
+
 
 **ATTENTION** : Avant de lancer les commandes Docker ci-dessus, assurez-vous d'avoir bien installé et lancé le Docker Engine sur votre machine.
 
@@ -154,7 +145,7 @@ Un collaborateur ne pourra que modifier son mot de passe à l'aide de la page ci
 
 Un administrateur peut accéder à la liste des utilisateurs en cliquant sur le bouton *Users list* :
 
-![image-20211010181607086](figures/image-20211010181607086.png)
+![image-20211011204905938](figures/image-20211011204905938.png)
 
 Depuis là, il peut modifier, ajouter voire supprimer un utilisateur. Pour revenir dans la boîte mail, il suffit de cliquer sur *Mailbox* en haut à gauche. Un administrateur peut également passer par cette page pour accéder aux informations de son compte et de modifier son mot de passe par exemple.
 
@@ -164,9 +155,9 @@ Depuis là, il peut modifier, ajouter voire supprimer un utilisateur. Pour reven
 
 Lorsqu'un administrateur clique sur le bouton *Add user* en-dessous de la liste des utilisateurs existants, il arrive sur la page ci-dessous :
 
-**TODO**
+![image-20211011214817920](figures/image-20211011214817920.png)
 
-Elle lui permet de renseigner un nom d'utilisateur (ou utiliser celui généré par défaut), de paramétrer le rôle de celui-ci, de lui définir un mot de passe ainsi que d'activer ou non le compte avec la checkbox.
+Elle lui permet de renseigner un nom d'utilisateur, de paramétrer le rôle de celui-ci, de lui définir un mot de passe ainsi que d'activer ou non le compte avec la checkbox.
 
 
 
@@ -174,9 +165,9 @@ Elle lui permet de renseigner un nom d'utilisateur (ou utiliser celui généré 
 
 Lorsqu'un administrateur clique sur le bouton *Edit* à côté d'utilisateur dans liste des utilisateurs existants, il arrive sur la page ci-dessous :
 
-![image-20211010184238320](figures/image-20211010184238320.png)
+![image-20211011215029258](figures/image-20211011215029258.png)
 
-Elle lui permet de modifier le rôle de l'utilisateur,  son mot de passe ainsi que d'activer ou désactiver le compte.
+Elle lui permet de modifier le rôle de l'utilisateur, son mot de passe ainsi que d'activer ou désactiver le compte.
 
 
 
@@ -209,12 +200,13 @@ Comme dans la boîte mail, il est aussi possible de répondre au message et de l
 - [x] Trier mail par date AVEC heure car mails du même jour pas dans le bon ordre et tronquer affichage dans mailbox
 - [x] Lors de l'envoi d'un nouveau mail, si l'utilisateur n'existe pas afficher message d'erreur en haut à gauche
 - [x] Rendre le nom d'utilisateur non-modifiable
-- [ ] (Si l'on quitte la page de création d'utilisateur sans valider sa création, l'utilisateur est créé quand même)
+- [x] Si l'on quitte la page de création d'utilisateur sans valider sa création, l'utilisateur est créé quand même
 - [x] Afficher rôle, validité en plus dans la liste des utilisateurs
 - [x] Modifier le nom du bouton pour créer/modifier un utilisateur -> "submit"
-- [ ] Régler problème lors de réponse de mail `SQLSTATE[HY000]: General error: 1 near "ai": syntax error` à cause d'un apostrophe qui est interprété dans la requête
+- [x] Régler problème lors de réponse de mail `SQLSTATE[HY000]: General error: 1 near "ai": syntax error` à cause d'un apostrophe qui est interprété dans la requête
 - [x] Seule la page de login doit être accessible sans être authentifié (sidebar est accessible, à corriger ?)
 - [x] Le destinataire doit être unique
 - [x] Problème d'affichage lors du changement de mot de passe
-- [] Affiche this user does not exist quand on quitte la page de modification de user
+- [x] Affiche this user does not exist quand on quitte la page de modification de user
 - [x] page exemple.php à supprimer
+- [x] Empêcher la modification du nom d'utilisateur sauf à la création

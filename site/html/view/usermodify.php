@@ -19,12 +19,12 @@
                             <div class="h1 fw-light">User details</div>
                         </div>
                         <form id="contactForm"
-                              action="index.php?action=update_user&no=<?php echo $_GET['no'] ?>" method="POST">
+                              action="index.php?action=<?php echo $isCreation ? "add_user" : "update_user"?>&no=<?php echo $_GET['no'] ?>" method="POST">
 
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="username" type="text" placeholder="Username"
                                        name="username" value="<?php echo $user['username'] ?>"
-                                    <?php if ($_SESSION['role'] == ROLE_USER) {
+                                    <?php if ($_SESSION['role'] == ROLE_USER || !$isCreation) {
                                         echo "disabled";
                                     } ?> required/>
                                 <label for="username">Username</label>
@@ -33,7 +33,7 @@
                             <select class="form-select" aria-label="Roles"
                                     name="role" <?php if ($_SESSION['role'] == ROLE_USER) {
                                 echo "disabled";
-                            } ?> >
+                            } ?>>
                                 <option value="0" <?php if ($user['role'] == ROLE_USER) {
                                     echo "selected";
                                 } ?>>Collaborator
@@ -77,7 +77,7 @@
                             </div>
 
                             <div class="d-grid">
-                                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+                                <button class="btn btn-primary btn-lg" id="submitButton" type="submit"><?php echo $isCreation ? "Create" : "Edit"?></button>
                             </div>
                         </form>
                     </div>
@@ -87,7 +87,6 @@
     </div>
 </div>
 
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 <?php require "view/components/password_repeat_check.html" ?>
 
 </body>

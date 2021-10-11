@@ -18,7 +18,7 @@ function login(){
                     @header("location: index.php?action=home");
                 }
                 else{
-                    $message = "This user is disabled";
+                    $_SESSION['message'] = "This user is disabled";
                     require "view/login.php";
                 }
 

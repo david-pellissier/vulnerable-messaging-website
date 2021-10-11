@@ -7,13 +7,13 @@
             $resultats = getUserByLogin($_POST['recipient']);
             $resultats = $resultats->fetch();
             if (empty($resultats['username'])) {
-                $message = "The user does not exist";
+                $_SESSION['message'] = "The user does not exist";
                 require 'view/message.php';
-                //throw new Exception("Les données d'authentification sont incorrectes");
             }
             else {
                 $date = date("Y-m-d H:i:s");
                 sendMail($_SESSION['no'], $resultats['no'], $_POST['subject'], $_POST['body'], $date);
+                $_SESSION['message'] = "The message has been sent";
                 mailbox();
             }
         }

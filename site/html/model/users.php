@@ -1,5 +1,5 @@
 <?php
-
+$message = "";
 
 function hashPassword($password)
 {
@@ -74,7 +74,7 @@ function insertUser($username, $password, $valid, $role)
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    $request = "INSERT INTO User (username, password, valid, role) VALUES ('$username', '$password', $valid, $role)";
+    $request = "INSERT INTO User (username, password, valid, role) VALUES ('$username', '$password', '$valid', '$role')";
     return $db->query($request);
 
 }

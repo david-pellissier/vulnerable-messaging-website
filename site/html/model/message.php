@@ -4,9 +4,15 @@
 
         $db = connect();
         // Création de la string pour la requête
-        $requete = "INSERT INTO Message (noSender, noRecipient, subject, body, date) 
-            VALUES ('" . $noSender . "', '" . $noRecipient . "', '" . $subject . "', '" . $body . "', '" . $date . "')";
+        $request = "INSERT INTO Message (noSender, noRecipient, subject, body, date) VALUES (:noSender, :noRecipient, :subject, :body, :date)";
+        $query = $db->prepare($request);
+        $query->bindValue(':noSender', $noSender);
+        $query->bindValue(':noRecipient', $noRecipient);
+        $query->bindValue(':subject', $subject);
+        $query->bindValue(':body', $body);
+        $query->bindValue(':date', $date);
+
         // Exécution de la requete
-        return $db->query($requete);
+        return $query->execute();
     }
 ?>

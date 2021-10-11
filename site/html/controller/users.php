@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function checkConnected()
 {
@@ -36,6 +36,7 @@ function changeUserDetails()
         $user = getUserByID($userNo)->fetch();
 
         if($user != null ) {
+            $isCreation = false;
             require 'view/usermodify.php';
         }
         else {
@@ -47,16 +48,17 @@ function changeUserDetails()
     if(isset($_POST['password']) && $_POST['password'] != ""){
         updatePassword($userNo, $_POST['password']);
         if($userNo == $_SESSION['no']){
-            $message ="Your password has been updated. Please log in again";
+            $_SESSION['message'] ="Your password has been updated. Please log in again";
             logout();
             exit();
         }
     }
 
     // màj des infos si admin
-    if($_SESSION['role'] == ROLE_ADMIN && isset($_POST['username'])){
+    if($_SESSION['role'] == ROLE_ADMIN && isset($_POST['role'])){
+
         updateUserNonEmptyFields($userNo);
-        $message = "The account has been modified";
+        $_SESSION['message'] = "The account has been modified";
         administration();
     }
 
@@ -69,11 +71,21 @@ function addUser(){
         throw new Exception('You do not have the rights to access this page');
     }
 
-    $username = "User " . rand(10000, 100000);
-    insertUser($username, "default", "0", "0");
-    $user = getUserByLogin($username)->fetch();
-    header("location: index.php?action=update_user&no=" . $user['no']);
-    exit();
+    if (empty($_POST)) {
+        $isCreation = true;
+        require 'view/usermodify.php';
+    }
+    else{
+        try {
+            insertUser($_POST['username'], $_POST["password"], $_POST["valid"], $_POST["role"]);
+            $_SESSION['message'] = "The account has been created";
+
+        } catch(Exception $e){
+            $_SESSION['message'] = "The account couldn't be created";
+        }
+        administration();
+    }
+
 }
 
 function deleteUser(){

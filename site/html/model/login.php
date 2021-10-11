@@ -12,7 +12,7 @@ function checkLogin($postArray)
     $resultats = $resultats->fetch();
 
     if (empty($resultats['username'])) {
-        $message = "The user does not exist or the password is incorrect";
+        $_SESSION['message'] = "The user does not exist or the password is incorrect";
         require 'view/login.php';
         //throw new Exception("Les données d'authentification sont incorrectes");
     }
@@ -26,7 +26,7 @@ function checkLogin($postArray)
             'role' => $resultats['role'],
         );
     } else {
-        $message = "The user does not exist or the password is incorrect";
+        $_SESSION['message'] = "The user does not exist or the password is incorrect";
         require 'view/login.php';
     }
     return @$infoUser;//renvoie certaines infos de l'utilisateur
