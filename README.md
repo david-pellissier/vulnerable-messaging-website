@@ -70,8 +70,16 @@ Date : 10.10.21
 
 2. Pour créer le conteneur Docker, utiliser la commande :
 
-   - Windows : `docker run -ti -v ${PWD}/site:/usr/share/nginx/ -d -p 8080:80 --name sti_project --hostname sti arubinst/sti:project2018`
-   - Linux : **TODO**
+- Windows :
+
+```powershell
+   docker run -ti -v ${PWD}/site:/usr/share/nginx/ -d -p 8080:80 --name sti_project --hostname sti arubinst/sti:project2018
+```
+   - Linux : 
+   
+```bash
+   docker run -ti -v ${PWD}/site:/usr/share/nginx/ -d -p 8080:80 --name sti_project --hostname sti arubinst/sti:project2018
+```
 
    Elle permet de télécharger l'image de base *arubinst/sti:project2018* contenant les services nginx et php, de mapper le dossier *site* en local sur le dossier */usr/share/nginx/* dans le conteneur, de mapper le port 8080 local sur le port 80 du conteneur, de nommer le conteneur *sti_project* ainsi que de nommer la machine *sti*.
 
@@ -79,14 +87,15 @@ Date : 10.10.21
 
    
 
-3. Lancez les services depuis votre host :
+3. Lancez les deux services depuis votre host :
 
-   - nginx : `docker exec -u root sti_project service nginx start`
-   - php : `docker exec -u root sti_project service php5-fpm start`
+```bash
+docker exec -u root sti_project service nginx start # NGINX
+docker exec -u root sti_project service php5-fpm start # pour PHP
+```
+ 
 
-   
-
-   **ATTENTION** : Avant de lancer les commandes Docker ci-dessus, assurez-vous d'avoir bien installé et lancé le Docker Engine sur votre machine.
+**ATTENTION** : Avant de lancer les commandes Docker ci-dessus, assurez-vous d'avoir bien installé et lancé le Docker Engine sur votre machine.
 
 
 
@@ -206,6 +215,6 @@ Comme dans la boîte mail, il est aussi possible de répondre au message et de l
 - [ ] Régler problème lors de réponse de mail `SQLSTATE[HY000]: General error: 1 near "ai": syntax error` à cause d'un apostrophe qui est interprété dans la requête
 - [x] Seule la page de login doit être accessible sans être authentifié (sidebar est accessible, à corriger ?)
 - [x] Le destinataire doit être unique
-- [ ] Problème d'affichage lors du changement de mot de passe
-- [ ] Affiche this user does not exist quand on quitte la page de modification de user
-- [ ] page exemple.php à supprimer
+- [x] Problème d'affichage lors du changement de mot de passe
+- [] Affiche this user does not exist quand on quitte la page de modification de user
+- [x] page exemple.php à supprimer

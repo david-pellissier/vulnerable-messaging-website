@@ -10,6 +10,7 @@ function checkLogin($postArray)
     $passwdPost = $postArray["fPasswd"];
     $resultats = getUserByLogin($username);
     $resultats = $resultats->fetch();
+
     if (empty($resultats['username'])) {
         $message = "The user does not exist or the password is incorrect";
         require 'view/login.php';

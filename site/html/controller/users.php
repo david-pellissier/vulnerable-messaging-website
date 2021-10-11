@@ -22,7 +22,7 @@ function administration()
     require 'view/users.php';
 }
 
-/* MEMO "admin" = $2y$10$WYDCmKw0I4v727i9VhQbZODJE791WA8lZfcgty5VfqKqnBzTJRBmO */
+
 function changeUserDetails()
 {
     $userNo = $_GET['no'];
@@ -43,6 +43,16 @@ function changeUserDetails()
         }
     }
 
+    // si nouveau mot de passe
+    if(isset($_POST['password']) && $_POST['password'] != ""){
+        updatePassword($userNo, $_POST['password']);
+        if($userNo == $_SESSION['no']){
+            $message ="Your password has been updated. Please log in again";
+            logout();
+            exit();
+        }
+    }
+
     // màj des infos si admin
     if($_SESSION['role'] == ROLE_ADMIN && isset($_POST['username'])){
         updateUserNonEmptyFields($userNo);
@@ -50,14 +60,7 @@ function changeUserDetails()
         administration();
     }
 
-    // si nouveau mot de passe
-    if(isset($_POST['password']) && $_POST['password'] != ""){
-        updatePassword($userNo, $_POST['password']);
-        if($userNo == $_SESSION['no']){
-            $message ="Your password has been updated. Please log in again";
-            logout();
-        }
-    }
+
 }
 
 function addUser(){
