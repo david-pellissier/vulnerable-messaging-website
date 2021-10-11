@@ -1,6 +1,6 @@
-<?php 
-    define('ROLE_USER', '0');
-    define('ROLE_ADMIN', '1');
+<?php
+    const ROLE_USER = '0';
+    const ROLE_ADMIN = '1';
     
     require 'controller/details.php';
     require 'controller/mailbox.php';
