@@ -2,7 +2,7 @@
 
 function checkConnected()
 {
-    return $_SESSION["isConnected"];
+    return $_SESSION['isConnected'];
 }
 
 function logout()

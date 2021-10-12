@@ -1,9 +1,5 @@
 <?php
-/*
- * @brief  Contrôle de login
- * @return $infoUser. COntient les informations de base de l'utilisateur (email, id et login)
- * @param les informations passées en POST
- */
+/
 function checkLogin($postArray)
 {
     $username = $postArray["fLogin"];

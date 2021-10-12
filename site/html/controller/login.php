@@ -1,5 +1,6 @@
 <?php
 
+
 function login(){
     // Récupération des variables POST
     if (isset($_POST['fLogin']) && isset($_POST['fPasswd'])) {

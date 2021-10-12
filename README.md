@@ -191,22 +191,3 @@ En cliquant sur le bouton *Open* situé à côté d'un mail reçu, il est possib
 ![image-20211010183221677](figures/image-20211010183221677.png)
 
 Comme dans la boîte mail, il est aussi possible de répondre au message et de le supprimer avec les deux boutons placés en-dessous du corps du message.
-
-
-
-**TODO** :
-
-- [x] Afficher message d'erreur si login incorrect
-- [x] Trier mail par date AVEC heure car mails du même jour pas dans le bon ordre et tronquer affichage dans mailbox
-- [x] Lors de l'envoi d'un nouveau mail, si l'utilisateur n'existe pas afficher message d'erreur en haut à gauche
-- [x] Rendre le nom d'utilisateur non-modifiable
-- [x] Si l'on quitte la page de création d'utilisateur sans valider sa création, l'utilisateur est créé quand même
-- [x] Afficher rôle, validité en plus dans la liste des utilisateurs
-- [x] Modifier le nom du bouton pour créer/modifier un utilisateur -> "submit"
-- [x] Régler problème lors de réponse de mail `SQLSTATE[HY000]: General error: 1 near "ai": syntax error` à cause d'un apostrophe qui est interprété dans la requête
-- [x] Seule la page de login doit être accessible sans être authentifié (sidebar est accessible, à corriger ?)
-- [x] Le destinataire doit être unique
-- [x] Problème d'affichage lors du changement de mot de passe
-- [x] Affiche this user does not exist quand on quitte la page de modification de user
-- [x] page exemple.php à supprimer
-- [x] Empêcher la modification du nom d'utilisateur sauf à la création
