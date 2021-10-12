@@ -1,29 +1,37 @@
 <?php
+/**
+ * Fonction permettant d'écrire un nouveau message
+ */
+function new_msg(){
 
-    function new_msg(){
+    // si les variables POST sont définies
+    if (isset($_POST['recipient']) && isset($_POST['subject']) && isset($_POST['body'])) {
 
-        if (isset($_POST['recipient']) && isset($_POST['subject']) && isset($_POST['body'])) {
+        // récupération du destinataire
+        $results = getUserByLogin($_POST['recipient']);
+        $results = $results->fetch();
 
-            $resultats = getUserByLogin($_POST['recipient']);
-            $resultats = $resultats->fetch();
-            if (empty($resultats['username'])) {
-                $_SESSION['message'] = "The user does not exist";
-                require 'view/message.php';
-            }
-            else {
-                $date = date("Y-m-d H:i:s");
-                sendMail($_SESSION['no'], $resultats['no'], $_POST['subject'], $_POST['body'], $date);
-                $_SESSION['message'] = "The message has been sent";
-                mailbox();
-            }
-        }
-        else {
-
-            if (isset($_GET['reply'])) {
-                $mail = getMailDetails($_GET['reply'])->fetch();
-            }
+        // si le résultat de la fonction getUserByLogin est vide, alors le destinataire n'existe pas
+        if (empty($results['username'])) {
+            $_SESSION['message'] = "The user does not exist";
             require 'view/message.php';
         }
+        else {
+            $date = date("Y-m-d H:i:s");
+            // appel de la fonction qui permet d'inscrire le mail dans la DB
+            sendMail($_SESSION['no'], $results['no'], $_POST['subject'], $_POST['body'], $date);
+            $_SESSION['message'] = "The message has been sent";
+            mailbox();
+        }
     }
+    else {
 
+        // si l'utilisateur répond à un mail, on récupère les infos de celui-ci afin de pouvoir les afficher dans la vue
+        // message.php grâce à la variable $mail
+        if (isset($_GET['reply'])) {
+            $mail = getMailDetails($_GET['reply'])->fetch();
+        }
+        require 'view/message.php';
+    }
+}
 ?>
