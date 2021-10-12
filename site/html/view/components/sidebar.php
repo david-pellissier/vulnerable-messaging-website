@@ -23,7 +23,7 @@
 <nav id="mainSidenav" class="navbar-right">
 
         <a href="/"><h1 class="grid-title"></i> Mailbox</h1><br/></a>
-        <a href="index.php?action=message" class="btn btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i>NEW MESSAGE</a>
+        <a href="index.php?action=message" class="btn btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> New message</a>
         <br>
         <a href="index.php?action=change_password&no=<?php echo $_SESSION['no'] ?>" class="btn btn-success" data-toggle="modal" data-target="#compose-modal">Change password</a>
         <br>

@@ -40,7 +40,8 @@ function changeUserDetails()
             require 'view/usermodify.php';
         }
         else {
-            throw new Exception("This user does not exist");
+            $_SESSION['message']="This user does not exist";
+            administration();
         }
     }
 
@@ -77,7 +78,8 @@ function addUser(){
     }
     else{
         try {
-            insertUser($_POST['username'], $_POST["password"], $_POST["valid"], $_POST["role"]);
+            $validity = isset($_POST['valid']) ? "1 " : "0 ";
+            insertUser($_POST['username'], $_POST["password"], $validity, $_POST["role"]);
             $_SESSION['message'] = "The account has been created";
 
         } catch(Exception $e){
@@ -102,15 +104,14 @@ function deleteUser(){
 
         if($userNo != $_SESSION['no']){
             dropUser($userNo);
-            administration();
         }
         else{
-            throw new Exception("You cannot delete yourself è-é");
+            $_SESSION['message'] = "You cannot delete yourself";
         }
     }
     else {
-        throw new Exception("This user does not exist");
+        $_SESSION['message'] ="This user does not exist";
     }
+    administration();
 
 }
-
