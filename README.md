@@ -201,7 +201,7 @@ Il est possible de supprimer un mail ou un utilisateur à l'aide des différents
 
 **TODO** :
 
-- [ ] Commenter le code (en-tête de fonction + comms dans le code)
+- [x] Commenter le code (en-tête de fonction + comms dans le code)
 - [x] Mettre des mails de tests dans la db
 - [ ] Mettre le code sur la branche main
 - [x] Relire le manuel
