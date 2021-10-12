@@ -87,9 +87,7 @@
         </div>
     </div>
 </div>
-
 <?php require "view/components/password_repeat_check.html" ?>
-
 </body>
 </html>
 

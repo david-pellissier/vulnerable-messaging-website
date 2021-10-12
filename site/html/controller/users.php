@@ -103,7 +103,7 @@ function addUser(){
     }
     else {
         try {
-            $validity = isset($_POST['valid']) ? "1" : "0";
+            $validity = isset($_POST['valid']) ? "1 " : "0 ";
             // appel de la fonction permettant de créer le nouvel utilisateur dans la DB
             insertUser($_POST['username'], $_POST["password"], $validity, $_POST["role"]);
             $_SESSION['message'] = "The account has been created";

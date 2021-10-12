@@ -17,6 +17,9 @@ function new_msg(){
             require 'view/message.php';
         }
         else {
+            // la date est utilisée dans ce format pour que les mails soient triés correctement dans la mailbox, même
+            // avec des mails arrivés le même jour, cependant elle sera tronquée dans la vue pour n'afficher que la date
+            // sans l'heure
             $date = date("Y-m-d H:i:s");
             // appel de la fonction qui permet d'inscrire le mail dans la DB
             sendMail($_SESSION['no'], $results['no'], $_POST['subject'], $_POST['body'], $date);

@@ -45,6 +45,5 @@
         <a class="btn btn-success btn-xs glyphicon glyphicon-ok" href="index.php?action=add_user" title="View">Add user</a>
     </div>
 </div>
-
 </body>
 </html>

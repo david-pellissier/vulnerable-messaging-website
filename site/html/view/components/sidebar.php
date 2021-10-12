@@ -32,5 +32,4 @@
             <br/>
         <?php } ?>
         <a href="index.php?action=logout" class="btn btn-danger" data-toggle="modal" data-target="#compose-modal">Disconnect</a>
-
 </nav>

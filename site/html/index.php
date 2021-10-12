@@ -2,10 +2,10 @@
 session_set_cookie_params(10000); // durée de vie de session si > destruction automatique
 session_start();
 
-
 require 'controller/controller.php';
 
 try {
+    // Permet de rediriger sur les bonnes pages en fonction de ce qui est passé dans le paramètre GET action
     if (isset($_GET['action']) && $_SESSION['isConnected']) {
         $action = $_GET['action'];
         switch ($action) {
@@ -46,6 +46,7 @@ try {
     } else
         home();
 } catch (Exception $e) {
+    // si une exception non-gérée survient, on affiche une erreur 500
     http_response_code(500);
     echo $e->getMessage();
 }
