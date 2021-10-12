@@ -191,3 +191,12 @@ En cliquant sur le bouton *Open* situé à côté d'un mail reçu, il est possib
 ![image-20211010183221677](figures/image-20211010183221677.png)
 
 Comme dans la boîte mail, il est aussi possible de répondre au message et de le supprimer avec les deux boutons placés en-dessous du corps du message.
+
+
+
+**TODO** :
+
+- [ ] Commenter le code (en-tête de fonction + comms dans le code)
+- [ ] Mettre des mails de tests dans la db
+- [ ] Mettre le code sur la branche main
+- [ ] Relire le manuel

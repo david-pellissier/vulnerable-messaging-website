@@ -1,5 +1,5 @@
 <?php
-/
+
 function checkLogin($postArray)
 {
     $username = $postArray["fLogin"];
