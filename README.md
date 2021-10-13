@@ -84,7 +84,6 @@ docker exec -u root sti_project service nginx start # NGINX
 docker exec -u root sti_project service php5-fpm start # pour PHP
 ```
 
-
 **ATTENTION** : Avant de lancer les commandes Docker ci-dessus, assurez-vous d'avoir bien installé et lancé le Docker Engine sur votre machine.
 
 
@@ -196,12 +195,3 @@ Comme dans la boîte mail, il est aussi possible de répondre au message et de l
 ### Supprimer un mail ou un utilisateur
 
 Il est possible de supprimer un mail ou un utilisateur à l'aide des différents bouton *Delete*, cependant attention, **il n'y a aucune demande de confirmation avant suppression**.
-
-
-
-**TODO** :
-
-- [ ] Commenter le code (en-tête de fonction + comms dans le code)
-- [x] Mettre des mails de tests dans la db
-- [ ] Mettre le code sur la branche main
-- [x] Relire le manuel
